@@ -11,10 +11,10 @@ import time
 import random
 
 def main():
-  oscSender = udp_client.UDPClient("localhost", 3000)
+  oscSender = udp_client.UDPClient("localhost", 2222)
   while True:
     n = random.randint(0, 1024)
-    print(n)
+  #  print(n)
 
     msg = osc_message_builder.OscMessageBuilder(address = "/rand")
     msg.add_arg(n)
