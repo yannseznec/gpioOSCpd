@@ -11,19 +11,12 @@ import time
 import random
 import RPi.GPIO as GPIO
 
-chan_list = [2]
-#check that this channel is correct vis-a-vis the board definition
-# add as many channels as you want!
-# you can tuples instead i.e.:
-#   chan_list = (11,12)
-GPIO.setup(chan_list, GPIO.IN, pull_up_down=GPIO) 
 
 def main():
     oscSender = udp_client.UDPClient("localhost", 2222)
-    GPIO.add_event_detect(2, GPIO.RISING)  # add rising edge detection on a channel
 do_something()
-if GPIO.event_detected(2):
-    print('Button pressed') #put the OSC
+
+
     while True:
         n = random.randint(0, 1024)
         print(n)
