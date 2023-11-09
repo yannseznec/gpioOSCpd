@@ -14,8 +14,9 @@ try:
 except RuntimeError:
     print("Error importing RPi.GPIO!  This is probably because you need superuser privileges.  You can achieve this by using 'sudo' to run your script")
 
+GPIO.setmode(GPIO.BCM)
 
-
+GPIO.setup(2, GPIO.IN)
 
 
 def main():
@@ -23,7 +24,7 @@ def main():
   while True:
     n = random.randint(0, 1024)
   #  print(n)
-
+    print(GPIO.input(2))
     msg = osc_message_builder.OscMessageBuilder(address = "/rand")
     msg.add_arg(n)
     oscSender.send(msg.build())
