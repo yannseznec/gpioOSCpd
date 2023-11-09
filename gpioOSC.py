@@ -10,6 +10,7 @@ from pythonosc import osc_message_builder
 import time
 import random
 import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
 
 chan_list = [2]     #check that this channel is correct vis-a-vis the board definition
                      # add as many channels as you want!
@@ -22,7 +23,7 @@ def main():
   GPIO.add_event_detect(2, GPIO.RISING)  # add rising edge detection on a channel
 do_something()
 if GPIO.event_detected(2):
-    print('Button pressed') #put the OSC stuff in here, presumably
+    print('Button pressed') #put the OSC stuff in here, presumably, address buttonPress
   while True:
 
     n = random.randint(0, 1024)
