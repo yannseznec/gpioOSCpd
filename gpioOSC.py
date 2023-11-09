@@ -22,14 +22,15 @@ GPIO.setup(2, GPIO.IN)
 def main():
   oscSender = udp_client.UDPClient("localhost", 2222)
   while True:
+    b = GPIO.input(2)
     n = random.randint(0, 1024)
   #  print(n)
-    print(GPIO.input(2))
-    msg = osc_message_builder.OscMessageBuilder(address = "/rand")
-    msg.add_arg(n)
+  #  print(GPIO.input(2))
+    msg = osc_message_builder.OscMessageBuilder(address = "/buttonPress")
+    msg.add_arg(b)
     oscSender.send(msg.build())
 
-    time.sleep(1)  
+    time.sleep(0.01)  
 
 if __name__ == "__main__":
   main()
