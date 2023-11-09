@@ -22,8 +22,8 @@ def main():
   GPIO.add_event_detect(2, GPIO.RISING)  # add rising edge detection on a channel
 do_something()
 if GPIO.event_detected(2):
-    print('Button pressed') #put the OSC stuff in here, presumably, address
-  while True:
+    print('Button pressed') #put the OSC stuff in here, presumably, 
+while True:
 
     n = random.randint(0, 1024)
   #  print(n)
