@@ -25,12 +25,12 @@ do_something()
 if GPIO.event_detected(2):
     print('Button pressed') #put the OSC
     while True:
-    n = random.randint(0, 1024)
-  #  print(n)
-    msg = osc_message_builder.OscMessageBuilder(address = "/rand")
-    msg.add_arg(n)
-    oscSender.send(msg.build())
-    time.sleep(0.1)  
+        n = random.randint(0, 1024)
+        print(n)
+        msg = osc_message_builder.OscMessageBuilder(address = "/rand")
+        msg.add_arg(n)
+        oscSender.send(msg.build())
+        time.sleep(0.1)  
 
 if __name__ == "__main__":
   main()
