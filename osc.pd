@@ -1,4 +1,4 @@
-#N canvas 494 307 450 300 12;
+#N canvas 387 148 704 338 12;
 #X obj 41 34 netreceive -u -b -f 2222;
 #X obj 40 77 oscparse -f;
 #X obj 39 104 list trim;
@@ -10,6 +10,7 @@
 #X obj 178 192 change;
 #X obj 179 140 route buttonPress2;
 #X obj 179 216 print button2;
+#X text 234 35 make sure this address is the same as in the python script;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
