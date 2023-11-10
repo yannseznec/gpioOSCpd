@@ -16,7 +16,7 @@ except RuntimeError:
 
 GPIO.setmode(GPIO.BCM)
 chan_list = [2,4]
-GPIO.setup(chan_list, GPIO.IN)
+GPIO.setup(chan_list, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(2, GPIO.BOTH)
 GPIO.add_event_detect(4, GPIO.BOTH)
 
