@@ -25,13 +25,14 @@ def main():
   while True:
     
     if GPIO.event_detected(2):
-        print('Button pressed')
+        msg = osc_message_builder.OscMessageBuilder(address = "/buttonPress1")
+        msg.add_arg(1)
+        oscSender.send(msg.build())
+        # print('Button pressed')
     
   #  print(n)
   #  print(GPIO.input(2))
-    msg = osc_message_builder.OscMessageBuilder(address = "/buttonPress1")
-    msg.add_arg(1)
-    oscSender.send(msg.build())
+    
     
 
 if __name__ == "__main__":
