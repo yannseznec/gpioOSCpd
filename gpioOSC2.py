@@ -15,9 +15,9 @@ except RuntimeError:
     print("Error importing RPi.GPIO!  This is probably because you need superuser privileges.  You can achieve this by using 'sudo' to run your script")
 
 GPIO.setmode(GPIO.BCM)
-
-GPIO.setup(2, GPIO.IN)
-GPIO.add_event_detect(2, GPIO.BOTH)
+chan_list = [2,4]
+GPIO.setup(chan_list, GPIO.IN)
+GPIO.add_event_detect(chan_list, GPIO.BOTH)
 
 
 def main():
