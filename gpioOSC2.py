@@ -17,7 +17,8 @@ except RuntimeError:
 GPIO.setmode(GPIO.BCM)
 chan_list = [2,4]
 GPIO.setup(chan_list, GPIO.IN)
-GPIO.add_event_detect(chan_list, GPIO.BOTH)
+GPIO.add_event_detect(2, GPIO.BOTH)
+GPIO.add_event_detect(4, GPIO.BOTH)
 
 
 def main():
