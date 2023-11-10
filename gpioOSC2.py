@@ -24,8 +24,8 @@ def main():
   oscSender = udp_client.UDPClient("localhost", 2222)
   while True:
     
-if GPIO.event_detected(2):
-    print('Button pressed')
+    if GPIO.event_detected(2):
+        print('Button pressed')
     
   #  print(n)
   #  print(GPIO.input(2))
