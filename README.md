@@ -28,10 +28,10 @@ I have no idea why, so I would suggest being careful about that.
 
 to run this example, get the python code and Pd patch onto your Pi somehow. Then run:
 
-python gpioOSC.py &
-pd -nogui osc.pd
+python gpioOSCpd/gpioOSC.py & 
+pd -nogui gpioOSCpd/osc.pd
 
 Connect a button to pin 2 and ground on the Raspberry Pi. Pressing the button should print 0 and 1 to the command line while the system is running.
 
-To run this on startup, copy those two lines and put add them to the bottom of /etc/rc.local just above the "exit 0" line. Make sure you have set the Pi to auto-login at startup.
+To run this on startup, copy those two lines and put add them to the bottom of /etc/profile. Make sure you have set the Pi to auto-login at startup.
 
