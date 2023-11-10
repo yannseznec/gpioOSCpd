@@ -17,14 +17,14 @@ except RuntimeError:
 GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(2, GPIO.IN)
+GPIO.add_event_detect(2, GPIO.RISING)
 
 
 def main():
   oscSender = udp_client.UDPClient("localhost", 2222)
   while True:
-    GPIO.add_event_detect(2, GPIO.RISING)
-    do_something()
-if GPIO.event_detected(2):
+    
+    if GPIO.event_detected(2):
     print('Button pressed')
     
   #  print(n)
