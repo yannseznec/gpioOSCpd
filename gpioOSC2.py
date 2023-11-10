@@ -16,8 +16,8 @@ except RuntimeError:
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.add_event_detect(2, GPIO.RISING)
+GPIO.setup(2, GPIO.IN)
+GPIO.add_event_detect(2, GPIO.BOTH)
 
 
 def main():
