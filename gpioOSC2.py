@@ -28,7 +28,7 @@ def main():
         msg = osc_message_builder.OscMessageBuilder(address = "/buttonPress1")
         msg.add_arg(1)
         oscSender.send(msg.build())
-        # print('Button pressed')
+        print(GPIO.input(2))
     
   #  print(n)
   #  print(GPIO.input(2))
