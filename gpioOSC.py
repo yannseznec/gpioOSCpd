@@ -25,10 +25,12 @@ except RuntimeError:
     print("Error importing RPi.GPIO!  This is probably because you need superuser privileges.  You can achieve this by using 'sudo' to run your script")
 
 GPIO.setmode(GPIO.BCM) # make sure you are connected to the right Pi pins, there are different ways and they are all slightly different and it is stupid
-chan_list = [3,4] # what pins you are using
+chan_list = [3,4,5,6] # what pins you are using
 GPIO.setup(chan_list, GPIO.IN, pull_up_down=GPIO.PUD_UP) # this throws a weird message about hardware pullups, but also seems to activate software pullups and helps clean the data. hardware pullup resistors appear optional...
 GPIO.add_event_detect(3, GPIO.BOTH) # i couldn't figure out how to make this automatic for each pin listed in the array above, because i'm bad at python
 GPIO.add_event_detect(4, GPIO.BOTH)
+GPIO.add_event_detect(5, GPIO.BOTH)
+GPIO.add_event_detect(6, GPIO.BOTH)
 
 
 def main():
@@ -45,7 +47,16 @@ def main():
         msg.add_arg(GPIO.input(4))
         oscSender.send(msg.build())
         # print(GPIO.input(2))
-    
+    if GPIO.event_detected(5):
+        msg = osc_message_builder.OscMessageBuilder(address = "/buttonPress3")
+        msg.add_arg(GPIO.input(5))
+        oscSender.send(msg.build())
+        # print(GPIO.input(2))
+    if GPIO.event_detected(6):
+        msg = osc_message_builder.OscMessageBuilder(address = "/buttonPress4")
+        msg.add_arg(GPIO.input(6))
+        oscSender.send(msg.build())
+        # print(GPIO.input(2))
   #  print(n)
   #  print(GPIO.input(2))
     
